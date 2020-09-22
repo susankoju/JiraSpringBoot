@@ -8,6 +8,7 @@
 
 ## language
 - Java
+    - JDK 8
     - Spring boot 2.3.4
 
 Dependencies
