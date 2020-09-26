@@ -40,6 +40,17 @@ public class Project implements Serializable {
     @OneToMany
     private List<User> team;
 
+    public Project(int id, String name, String type, String key, Date createdAt, Date updatedAt, User lead, List<User> team) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.key = key;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.lead = lead;
+        this.team = team;
+    }
+
     public int getId() {
         return id;
     }

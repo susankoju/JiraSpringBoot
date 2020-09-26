@@ -34,6 +34,30 @@ public class Task implements Serializable {
     @ManyToOne
     private User assignee;
 
+    @ManyToOne
+    private Project project;
+
+    public Project getProject() {
+        return project;
+    }
+
+    public Task(int id, String title, String description, String status, int storyPoint, String label, String attachment, User reporter, User assignee, Project project) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.status = status;
+        this.storyPoint = storyPoint;
+        this.label = label;
+        this.attachment = attachment;
+        this.reporter = reporter;
+        this.assignee = assignee;
+        this.project = project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
     public int getId() {
         return id;
     }
