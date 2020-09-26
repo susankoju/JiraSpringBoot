@@ -2,7 +2,7 @@
 7th Sem. Project JiraSpringBoot(Jira-SB)
 ##
 
-## Project
+## Build Tool
 - Gradle
 
 ## language
@@ -16,9 +16,30 @@
 - Spring Web
 - PostgreSQL Driver
 
+
+--------------------------------------------------------------------------------------
+# Frontend (React)
+https://github.com/punyabz8/JIRA-React
+
+--------------------------------------------------------------------------------------
+# Project Scope
+<center>
+
+|   S.N.    |   Feature                             |   Status  |
+|-----------|---------------------------------------|-----------|
+|   1.      | Authentication                        |   TODO    |
+|   2.      | Easy to understand project structure  |   TODO    |
+|   3.      | Simple drag and drop kanban board     |   TODO    |
+|   4.      | Add/update issue                      |   TODO    |
+|   5.      | Search/filtering issues               |   TODO    |
+|   6.      | Add comments                          |   TODO    |
+|   7.      | Upload images                         |   TODO    |
+
+</center>
+
 --------------------------------------------------------------------------------------
 
-## Current Database Schema (To be updated)
+# Current Database Schema (To be updated)
 
 --------------------------------------------------------------------------------------
                                       Table "public.user"
@@ -68,5 +89,17 @@
  id         | integer |           | not null | 
  project_id | integer |           |          | 
  user_id    | integer |           |          | 
+
+--------------------------------------------------------------------------------------
+
+                          Table "public.comment"
+   Column   |            Type             | Collation | Nullable | Default 
+------------|-----------------------------|-----------|----------|---------
+ id         | integer                     |           | not null | 
+ created_at | timestamp without time zone |           |          | 
+ posted_by  | bytea                       |           |          | 
+ task_id    | bytea                       |           |          | 
+ text       | character varying(255)      |           |          | 
+ updated_at | timestamp without time zone |           |          | 
 
 --------------------------------------------------------------------------------------
