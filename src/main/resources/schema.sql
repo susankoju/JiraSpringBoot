@@ -5,12 +5,13 @@
 --
 --SELECT 'jira-sb';
 
-DROP TABLE IF EXISTS "user";
+--DROP TABLE IF EXISTS "user";
 
-CREATE TABLE "user"(
+CREATE TABLE IF NOT EXISTS "user"(
   "id" SERIAL PRIMARY KEY,
   "firstName" varchar(45) NOT NULL,
   "lastName" varchar(45) NOT NULL,
   "email" varchar(100) DEFAULT NULL,
-  "password" varchar(45) DEFAULT NULL
+  "password" varchar(45) DEFAULT NULL,
+  "profileImage" varchar(100) DEFAULT NULL
 );
