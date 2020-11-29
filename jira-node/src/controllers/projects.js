@@ -2,9 +2,9 @@ import Model from '../models/model';
 
 const projectsModel = new Model('projects');
 
-export const projectsPage = async (req, res) => {
+export const projectsList = async (req, res) => {
   try {
-    const data = await projectsModel.select('name, key, type, created_at');
+    const data = await projectsModel.select('id, name, key, type, created_at, lead_id');
     res.status(200).json({ projects: data.rows });
   } catch (err) {
     res.status(500).json({ messages: err.stack });
