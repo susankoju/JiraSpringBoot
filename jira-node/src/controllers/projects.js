@@ -1,13 +1,17 @@
-import Model from '../models/model';
+import Projects from '../models/projects';
 
-const projectsModel = new Model('projects');
+const projectsModel = new Projects('projects');
 
 export const projectsList = async (req, res) => {
   try {
-    const data = await projectsModel.select('id, name, key, type, created_at, lead_id');
-    res.status(200).json({ projects: data.rows });
+    const { id } = req.headers;
+    if (!id) {
+      return res.status(300).json({ messages: 'Must include id in header' });
+    }
+    const data = await projectsModel.getProjects(id);
+    return res.status(200).json({ projects: data.rows });
   } catch (err) {
-    res.status(500).json({ messages: err.stack });
+    return res.status(500).json({ messages: err.stack });
   }
 };
 
