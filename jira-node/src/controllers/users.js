@@ -19,3 +19,12 @@ export const signup = async (req, res) => {
     return res.status(500).json({ messages: err.stack });
   }
 };
+
+export const listUsers = async (req, res) => {
+  try {
+    const data = await usersModel.select('*');
+    return res.status(200).json({ users: data.rows });
+  } catch (err) {
+    return res.status(500).json({ messages: err.stack });
+  }
+};
