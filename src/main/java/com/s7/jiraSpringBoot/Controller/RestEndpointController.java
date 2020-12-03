@@ -14,7 +14,7 @@ public class RestEndpointController {
     @Autowired
     private MainService mainService;
 
-    @RequestMapping("/api/users")
+    @RequestMapping("/users")
     public List<User> getAllUsers() {
         return mainService.getAllUsers();
     }

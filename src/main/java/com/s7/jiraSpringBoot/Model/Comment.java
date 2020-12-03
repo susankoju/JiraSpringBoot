@@ -1,7 +1,6 @@
 package com.s7.jiraSpringBoot.Model;
 
 import javax.persistence.*;
-import javax.xml.crypto.Data;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -18,16 +17,16 @@ public class Comment implements Serializable {
     private User posted_by;
 
     @Column
-    private Task task_id;
+    private Issue issue_id;
 
     @Column
     private Date created_at;
 
-    public Comment(int id, String text, User posted_by, Task task_id, Date created_at, Date updated_at) {
+    public Comment(int id, String text, User posted_by, Issue issue_id, Date created_at, Date updated_at) {
         this.id = id;
         this.text = text;
         this.posted_by = posted_by;
-        this.task_id = task_id;
+        this.issue_id = issue_id;
         this.created_at = created_at;
         this.updated_at = updated_at;
     }
@@ -56,12 +55,12 @@ public class Comment implements Serializable {
         this.posted_by = posted_by;
     }
 
-    public Task getTask_id() {
-        return task_id;
+    public Issue getTask_id() {
+        return issue_id;
     }
 
-    public void setTask_id(Task task_id) {
-        this.task_id = task_id;
+    public void setTask_id(Issue issue_id) {
+        this.issue_id = issue_id;
     }
 
     public Date getCreated_at() {

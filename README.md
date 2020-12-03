@@ -98,7 +98,7 @@ https://github.com/punyabz8/JIRA-React
  id         | integer                     |           | not null | 
  created_at | timestamp without time zone |           |          | 
  posted_by  | bytea                       |           |          | 
- task_id    | bytea                       |           |          | 
+ issue_id    | bytea                       |           |          | 
  text       | character varying(255)      |           |          | 
  updated_at | timestamp without time zone |           |          | 
 

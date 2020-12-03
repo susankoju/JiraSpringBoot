@@ -1,5 +1,6 @@
 package com.s7.jiraSpringBoot.Service;
 
+import com.s7.jiraSpringBoot.Model.Project;
 import com.s7.jiraSpringBoot.Model.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,4 +17,7 @@ public interface MainService <T> {
     T deleteById(int id);
 
     List<User> getAllUsers();
+    public abstract List<Project> getProjectsByMemberId(int id);
+
+    public abstract Project saveProject(Project project);
 }

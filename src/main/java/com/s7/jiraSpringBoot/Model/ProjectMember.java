@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-public class Team implements Serializable {
+public class ProjectMember implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -27,7 +27,7 @@ public class Team implements Serializable {
         return project_id;
     }
 
-    public Team(int id, int project_id, int user_id) {
+    public ProjectMember(int id, int project_id, int user_id) {
         this.id = id;
         this.project_id = project_id;
         this.user_id = user_id;
