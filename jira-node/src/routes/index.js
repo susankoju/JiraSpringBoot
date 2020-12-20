@@ -1,6 +1,7 @@
 import express from 'express';
 
 import { listUsers, signup } from '../controllers/users';
+import { addProjectBoard, listProjectBoard } from '../controllers/projectBoards';
 import { addProject, projectsList } from '../controllers/projects';
 import { addProjectMember, projectMembers } from '../controllers/projectMembers';
 
@@ -12,8 +13,12 @@ indexRouter.get('/users', listUsers);
 
 indexRouter.get('/projects', projectsList);
 indexRouter.post('/projects', addProject);
+
 indexRouter.get('/projects/:id/members', projectMembers);
 indexRouter.post('/projects/:id/members', addProjectMember);
+
+indexRouter.post('/projects/:id/boards', addProjectBoard);
+indexRouter.get('/projects/:id/boards', listProjectBoard);
 
 indexRouter.post('/signup', signup);
 

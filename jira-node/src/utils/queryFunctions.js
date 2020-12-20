@@ -1,14 +1,16 @@
 import { pool } from '../models/pool';
 import {
-  begin,
-  commit,
+  alterBoardTable,
+  createIssuesTable,
+  alterProjectMemberTable,
+  alterProjectsTable,
   insertProjects,
-  dropUsersTable,
   createUsersTable,
-  dropProjectsTable,
+  createBoardsTable,
   createProjectsTable,
-  dropProjectMembersTable,
   createProjectMembersTable,
+  alterIssuesTable,
+  dropSchema,
 } from './queries';
 
 export const executeQueryArray = async arr => new Promise(resolve => {
@@ -20,17 +22,21 @@ export const executeQueryArray = async arr => new Promise(resolve => {
 });
 
 export const dropTables = () => executeQueryArray([
-  begin,
-  dropProjectMembersTable,
-  dropProjectsTable,
-  dropUsersTable,
-  commit
+  dropSchema
 ]);
 export const createTables = () => executeQueryArray([
-  begin,
   createUsersTable,
   createProjectsTable,
   createProjectMembersTable,
-  commit
+  createIssuesTable,
+  createBoardsTable,
 ]);
+
+export const alterTables = () => executeQueryArray([
+  alterProjectsTable,
+  alterBoardTable,
+  alterProjectMemberTable,
+  alterIssuesTable,
+]);
+
 export const insertIntoTables = () => executeQueryArray([ insertProjects ]);
