@@ -20,7 +20,7 @@ export const addProject = async (req, res) => {
     return res.status(300).json({ messages: 'Request body required' });
   }
   const {
-    name, type, key, lead_id
+    name, type, key, lead_id=1
   } = req.body;
   const columns = 'name, type, key, lead_id';
   const values = `'${name}', '${type}', '${key}', '${lead_id}'`;

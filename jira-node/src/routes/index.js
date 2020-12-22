@@ -3,6 +3,7 @@ import express from 'express';
 import { listUsers, signup } from '../controllers/users';
 import { addProjectBoard, listProjectBoard } from '../controllers/projectBoards';
 import { addProject, projectsList } from '../controllers/projects';
+import { addIssues, listIssues } from '../controllers/issues';
 import { addProjectMember, projectMembers } from '../controllers/projectMembers';
 
 const indexRouter = express.Router();
@@ -19,6 +20,9 @@ indexRouter.post('/projects/:id/members', addProjectMember);
 
 indexRouter.post('/projects/:id/boards', addProjectBoard);
 indexRouter.get('/projects/:id/boards', listProjectBoard);
+
+indexRouter.post('/projects/:id/boards/:boardId/issues', addIssues);
+indexRouter.get('/projects/:id/boards/:boardId/issues', listIssues);
 
 indexRouter.post('/signup', signup);
 
