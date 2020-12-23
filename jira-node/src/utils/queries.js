@@ -93,6 +93,8 @@ CREATE TABLE IF NOT EXISTS issues (
     reporter_id INT,
     due_date TIMESTAMPTZ,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    started_at TIMESTAMPTZ,
+    ended_at TIMESTAMPTZ,
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 )
 `;
