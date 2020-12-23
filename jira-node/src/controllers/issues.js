@@ -64,3 +64,15 @@ export const updateIssues = async (req, res) => {
   }
 
 }
+
+export const removeIssues = async (req, res) => {
+  try {
+    const { issueId } = req.params;
+    const data = await issuesModel.removeIssue(issueId);
+    
+    return res.status(201).json({ issues: data.rows });
+  } catch (err) {
+    return res.status(500).json({ messages: err.stack });
+  }
+
+}
