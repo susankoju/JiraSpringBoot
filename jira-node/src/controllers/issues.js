@@ -44,10 +44,10 @@ export const addIssues = async (req, res) => {
 
 export const listIssues = async (req, res) => {
   try {
-    const { id } = req.params;
-    const data = await issuesModel.getProjectBoards(id);
-
-    return res.status(201).json({ boards: data.rows });
+    const { boardId } = req.params;
+    const data = await issuesModel.getIssues(boardId);
+    
+    return res.status(201).json({ issues: data.rows });
   } catch (err) {
     return res.status(500).json({ messages: err.stack });
   }
