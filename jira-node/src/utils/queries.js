@@ -5,9 +5,10 @@ export const createUsersTable = `
 
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY NOT NULL,
-    first_name VARCHAR,
-    last_name VARCHAR,
-    email VARCHAR UNIQUE NOT NULL
+    given_name VARCHAR,
+    family_name VARCHAR,
+    email VARCHAR UNIQUE NOT NULL,
+    picture VARCHAR
 );
 `;
 
