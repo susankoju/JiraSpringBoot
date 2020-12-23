@@ -6,8 +6,8 @@ export const signup = async (req, res) => {
   const {
     given_name, family_name, email, picture
   } = req.body;
-  if (!given_name || !family_name || !email) {
-    return res.status(300).json({ messages: 'User given_name, family_name and email is required!' });
+  if (!email) {
+    return res.status(300).json({ messages: 'email is required!' });
   }
   const columns = 'given_name, family_name, email, picture';
   const values = `'${given_name}', '${family_name}', '${email}', '${picture}'`;
@@ -16,7 +16,7 @@ export const signup = async (req, res) => {
 
     return res.status(201).json({ users: data.rows });
   } catch (err) {
-    return res.status(500).json({ messages: err.stack });
+    return res.status(200).json({ messages: err.stack });
   }
 };
 
