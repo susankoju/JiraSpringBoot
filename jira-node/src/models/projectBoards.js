@@ -6,7 +6,9 @@ class ProjectBoards extends Model {
   }
 
   async getProjectBoards(projectId) {
-    return this.pool.query(`SELECT * FROM boards WHERE project_id=${projectId}`);
+    return this.pool.query(
+      `SELECT * FROM boards WHERE project_id=${projectId}`
+    );
   }
 }
 

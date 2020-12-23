@@ -9,7 +9,7 @@ import app from '../app';
 /**
  * Normalize a port into a number, string, or false.
  */
-const normalizePort = val => {
+const normalizePort = (val) => {
   const port = parseInt(val, 10);
   if (Number.isNaN(port)) {
     // named pipe
@@ -37,7 +37,7 @@ const server = http.createServer(app);
 /**
  * Event listener for http server "error" event.
  */
-const onError = error => {
+const onError = (error) => {
   if (error.syscall !== 'listen') {
     throw error;
   }
@@ -65,7 +65,7 @@ const onListening = () => {
   const addr = server.address();
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
   debug(`Listening on ${bind}`);
-  console.log(`Listening on ${bind}`)
+  console.log(`Listening on ${bind}`);
 };
 
 /**

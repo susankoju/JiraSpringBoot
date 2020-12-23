@@ -16,7 +16,7 @@ export const signup = async (req, res) => {
 
     return res.status(201).json({ users: data.rows });
   } catch (err) {
-    return res.status(200).json({ messages: "User created" });
+    return res.status(200).json({ messages: 'User created' });
   }
 };
 
