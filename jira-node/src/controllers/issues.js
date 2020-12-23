@@ -52,3 +52,15 @@ export const listIssues = async (req, res) => {
     return res.status(500).json({ messages: err.stack });
   }
 };
+
+export const updateIssues = async (req, res) => {
+  try {
+    const { issueId } = req.params;
+    const data = await issuesModel.updateIssue(issueId, req.body);
+    
+    return res.status(201).json({ issues: data.rows });
+  } catch (err) {
+    return res.status(500).json({ messages: err.stack });
+  }
+
+}
