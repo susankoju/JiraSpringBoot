@@ -82,6 +82,7 @@ CREATE TABLE IF NOT EXISTS issues (
     id SERIAL PRIMARY KEY NOT NULL,
     title VARCHAR,
     type VARCHAR,
+    label VARCHAR,
     status VARCHAR,
     priority VARCHAR,
     description VARCHAR,
