@@ -6,25 +6,31 @@ class Issues extends Model {
   }
 
   async getIssues(boardId) {
-    return this.pool.query(`SELECT i.*, u.given_name, u.family_name, u.picture, u.email FROM issues as i LEFT JOIN users as u on i.assignee_id=u.id WHERE board_id=${boardId}`);
+    return this.pool.query(
+      `SELECT i.*, u.given_name, u.family_name, u.picture, u.email FROM issues as i LEFT JOIN users as u on i.assignee_id=u.id WHERE board_id=${boardId}`
+    );
   }
 
   async updateIssue(issueId, body) {
-    let changes = `SET id=${issueId}`
-    for(const key in body) {
+    let changes = `SET id=${issueId}`;
+    for (const key in body) {
       changes += `, ${key}`;
       if (Number.isSafeInteger(body[key])) {
-        changes += `=${body[key]}`
+        changes += `=${body[key]}`;
       } else {
-        changes += `='${body[key]}'`
+        changes += `='${body[key]}'`;
       }
     }
 
-    return this.pool.query(`UPDATE issues ${changes} WHERE id =${issueId} RETURNING *`)
+    return this.pool.query(
+      `UPDATE issues ${changes} WHERE id =${issueId} RETURNING *`
+    );
   }
 
   async removeIssue(issueId) {
-    return this.pool.query(`DELETE FROM issues WHERE id=${issueId} RETURNING *`)
+    return this.pool.query(
+      `DELETE FROM issues WHERE id=${issueId} RETURNING *`
+    );
   }
 }
 

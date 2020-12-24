@@ -13,7 +13,7 @@ import {
   dropSchema,
 } from './queries';
 
-export const executeQueryArray = async arr => new Promise(resolve => {
+export const executeQueryArray = async (arr) => new Promise((resolve) => {
   const stop = arr.length;
   arr.forEach(async (q, index) => {
     await pool.query(q);
@@ -21,9 +21,7 @@ export const executeQueryArray = async arr => new Promise(resolve => {
   });
 });
 
-export const dropTables = () => executeQueryArray([
-  dropSchema
-]);
+export const dropTables = () => executeQueryArray([ dropSchema ]);
 export const createTables = () => executeQueryArray([
   createUsersTable,
   createProjectsTable,
